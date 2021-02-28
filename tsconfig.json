@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+      "target": "es6",
+      "noImplicitAny": true, //
+      "sourceMap": true,
+      "jsx": "preserve",
+      "experimentalDecorators": true,
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true
+  },
+  "lib": ["DOM", "es6"],
+  "exclude": [
+      "node_modules",
+      ".meteor"
+  ]
+}
