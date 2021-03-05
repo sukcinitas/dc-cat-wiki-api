@@ -5,7 +5,7 @@ import CatService from '../services/cat.service';
 
 const file = path.resolve(__dirname, '../../cats.json');
 
-const increaseSearchCount = async (id: string): void => {
+const increaseSearchCount = async (id: string): Promise<void> => {
   const result = await fs.readFile(file, 'utf8');
   let info = JSON.parse(result);
 
@@ -30,7 +30,7 @@ const increaseSearchCount = async (id: string): void => {
   });
 }
 
-const get = async ():Array<{ id: string, name: string, searched: number }> => {
+const get = async (): Promise<Array<{ id: string, name: string, searched: number }>> => {
   const result = await fs.readFile(file, 'utf8');
   const info = JSON.parse(result);
 
@@ -52,7 +52,7 @@ const get = async ():Array<{ id: string, name: string, searched: number }> => {
   return newArray;
 }
 
-const search = async (pattern: string): Array<string> => {
+const search = async (pattern: string): Promise<Array<string>> => {
   const result = await fs.readFile(file, 'utf8');
   const info = JSON.parse(result);
   const newArray = info
