@@ -14,5 +14,6 @@ const catchErr = (f:any) => (
 router.route('/breeds/:breedId').get(catchErr(CatsController.getBreedByBreedId));
 router.route('/images').get(catchErr(CatsController.getImagesOfBreedByBreedId));
 router.route('/search').get(catchErr(CatsController.searchForBreedByQuery));
+router.route('/').get(catchErr(CatsController.getMostPopularBreeds));
 
 export default router;

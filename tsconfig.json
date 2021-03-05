@@ -11,6 +11,6 @@
   "lib": ["DOM", "es6"],
   "exclude": [
       "node_modules",
-      ".meteor"
+      "cats.json"
   ]
 }
