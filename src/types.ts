@@ -38,7 +38,13 @@ interface CatBreedData {
     short_legs: number;
     wikipedia_url: string;
     hypoallergenic: number;
-    reference_image_id: string
+    reference_image_id: string,
+    image: {
+      id?: string;
+      url: string;
+      width?: number;
+      height?: number;
+    },
 }
 
 interface CatBreedImageData {
@@ -49,7 +55,12 @@ interface CatBreedImageData {
   height: number;
 }
 
+interface CatBreedSearchedData extends CatBreedData {
+  searched: number;
+}
+
 export {
   CatBreedData,
   CatBreedImageData,
+  CatBreedSearchedData,
 }
