@@ -8,10 +8,11 @@ const CatsController = {
     try {
       const q = typeof req.query.q === 'string' ? req.query.q : undefined;
       if (!q) {
-        res.status(500).json({
+        res.status(400).json({
           success: false,
           message: 'Could not retrieve search results!',
         });
+        return;
       }
       const searchList = await mostPopularSearch.search(q);
       res.json({

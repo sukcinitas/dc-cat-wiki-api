@@ -1,5 +1,5 @@
 import { promises as fs} from 'fs';
-import path from 'path';
+import * as path from 'path';
 
 import CatService from '../services/cat.service';
 import { CatBreedSearchedData } from '../types';
@@ -10,7 +10,7 @@ const increaseSearchCount = async (id: string): Promise<void> => {
   const result = await fs.readFile(file, 'utf8');
   const info = JSON.parse(result);
 
-  const changedInfo = info.map((cat) => {
+  const changedInfo = info.map((cat: { id: string, name: string, searched: number }) => {
     if (cat.id === id) {
       return {
         id: cat.id,
@@ -33,13 +33,13 @@ const get = async (): Promise<Array<CatBreedSearchedData>> => {
   const result = await fs.readFile(file, 'utf8');
   const info = JSON.parse(result);
 
-  const sortedInfo = info.sort(function (a, b) {
+  const sortedInfo = info.sort(function (a: { id: string, name: string, searched: number }, b: { id: string, name: string, searched: number }) {
     return b.searched - a.searched;
   }).slice(0, 10);
   const { data } = await CatService.getAllBreeds();
   const newArray = [];
   for (let i = 0; i < data.length; i++) {
-    const exist = sortedInfo.filter((elem) => {
+    const exist = sortedInfo.filter((elem: { id: string, name: string, searched: number }) => {
       return elem.id === data[i].id;
     });
     if (exist.length !== 0) {
@@ -60,10 +60,10 @@ const search = async (pattern: string): Promise<Array<{ name: string, id: string
   const result = await fs.readFile(file, 'utf8');
   const info = JSON.parse(result);
   const changedInfo = info
-    .filter((item) => {
+    .filter((item: { id: string, name: string, searched: number }) => {
       return (new RegExp('^' + pattern, 'i')).test(item.name);
     })
-    .map((item) => ({ name: item.name, id: item.id }));
+    .map((item: { id: string, name: string, searched: number }) => ({ name: item.name, id: item.id }));
   return changedInfo;
 }
 
