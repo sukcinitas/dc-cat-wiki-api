@@ -34,7 +34,6 @@ suite('Routing tests', function() {
       chai.request(server)
         .get('/api/cats/breeds/beng')
         .end(function(err, res){
-          console.log(res.body.catInfo.breeds[0].name);
           assert.equal(res.status, 200);
           assert.property(res.body, 'catInfo', 'Response should contain an object of image information and breeds array consisting of one selected breed.');
           assert.equal(res.body.success, true);

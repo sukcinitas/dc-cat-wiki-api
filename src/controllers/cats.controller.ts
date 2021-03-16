@@ -8,21 +8,20 @@ const CatsController = {
     try {
       const q = typeof req.query.q === 'string' ? req.query.q : undefined;
       if (!q) {
-        res.status(400).json({
+        return res.status(400).json({
           success: false,
-          message: 'Could not retrieve search results!',
+          message: 'Parameter "q" is required for request!',
         });
-        return;
       }
       const searchList = await mostPopularSearch.search(q);
-      res.json({
+      return res.json({
         success: true,
         searchList,
       });
     } catch (err) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
-        message: 'Could not retrieve search results!',
+        message: 'Could not get results!',
         error: err.message,
       });
     }
@@ -33,12 +32,12 @@ const CatsController = {
       const { breedId } = req.params;
       const response = await CatService.getBreedByBreedId({ breedId });
       await mostPopularSearch.increaseSearchCount(breedId);
-      res.json({
+      return res.json({
         success: true,
         catInfo: response.data[0],
       });
     } catch (err) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         message: 'Could not get results!',
         error: err.message,
@@ -50,13 +49,19 @@ const CatsController = {
     try {
       const breedId = typeof req.query.breedId === 'string' ? req.query.breedId : undefined;
       const limit = typeof req.query.limit === 'string' ? req.query.limit : undefined;
+      if (!breedId) {
+        return res.status(400).json({
+          success: false,
+          message: 'Parameter "breedId" is required for request!',
+        });
+      }
       const response = await CatService.getImagesOfBreedByBreedId({ breedId, limit });
-      res.json({
+      return res.json({
         success: true,
         catInfo: response.data,
       });
     } catch (err) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         message: 'Could not get results!',
         error: err.message,
@@ -67,12 +72,12 @@ const CatsController = {
   async getMostPopularBreeds(req: Request, res: Response): Promise<void> {
     try {
       const result = await mostPopularSearch.get();
-      res.json({
+      return res.json({
         success: true,
         mostPopularBreeds: result,
       });
     } catch (err) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         message: 'Could not get results!',
         error: err.message,
