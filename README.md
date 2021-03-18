@@ -44,7 +44,7 @@ An application to get information about cat breeds & keep information on most se
 <table>
   <tr>
     <th>URL & HTTP method</th>
-    <th>URL query params</th>
+    <th>Parameters | req body</th>
     <th>Response</th>
   </tr>
   <tr>
@@ -60,52 +60,52 @@ An application to get information about cat breeds & keep information on most se
       <pre>
       {
         weight: {
-          imperial: string,
-          metric: string,
+          imperial: <em>string</em>,
+          metric: <em>string</em>,
         }
-        id: string,
-        name: string,
-        cfa_url: string,
-        vetstreet_url: string,
-        vcahospitals_url: string,
-        temperament: string,
-        origin: string,
-        country_codes: string,
-        country_code: string,
-        description: string,
-        life_span: string,
-        indoor: number,
-        lap: number,
-        alt_names: string,
-        adaptability: number,
-        affection_level: number,
-        child_friendly: number,
-        dog_friendly: number,
-        energy_level: number,
-        grooming: number,
-        health_issues: number,
-        intelligence: number,
-        shedding_level: number,
-        social_needs: number,
-        stranger_friendly: number,
-        vocalisation: number,
-        experimental: number,
-        hairless: number,
-        natural: number,
-        rare: number,
-        rex: number,
-        suppressed_tail: number,
-        short_legs: number,
-        wikipedia_url: string,
-        hypoallergenic: number,
-        reference_image_id: string,
+        id: <em>string</em>,
+        name: <em>string</em>,
+        cfa_url: <em>string</em>,
+        vetstreet_url: <em>string</em>,
+        vcahospitals_url: <em>string</em>,
+        temperament: <em>string</em>,
+        origin: <em>string</em>,
+        country_codes: <em>string</em>,
+        country_code: <em>string</em>,
+        description: <em>string</em>,
+        life_span: <em>string</em>,
+        indoor: <em>number</em>,
+        lap: <em>number</em>,
+        alt_names: <em>string</em>,
+        adaptability: <em>number</em>,
+        affection_level: <em>number</em>,
+        child_friendly: <em>number</em>,
+        dog_friendly: <em>number</em>,
+        energy_level: <em>number</em>,
+        grooming: <em>number</em>,
+        health_issues: <em>number</em>,
+        intelligence: <em>number</em>,
+        shedding_level: <em>number</em>,
+        social_needs: <em>number</em>,
+        stranger_friendly: <em>number</em>,
+        vocalisation: <em>number</em>,
+        experimental: <em>number</em>,
+        hairless: <em>number</em>,
+        natural: <em>number</em>,
+        rare: <em>number</em>,
+        rex: <em>number</em>,
+        suppressed_tail: <em>number</em>,
+        short_legs: <em>number</em>,
+        wikipedia_url: <em>string</em>,
+        hypoallergenic: <em>number</em>,
+        reference_image_id: <em>string</em>,
         image: {
-          id?: string,
-          url: string,
-          width?: number,
-          height?: number,
+          id?: <em>string</em>,
+          url: <em>string</em>,
+          width?: <em>number</em>,
+          height?: <em>number</em>,
         },
-        searched: number
+        searched: <em>number</em>
       }
       </pre>
     </details>
@@ -116,12 +116,17 @@ An application to get information about cat breeds & keep information on most se
 <table>
   <tr>
     <th>URL & HTTP method</th>
-    <th>URL query params</th>
+    <th>Parameters | req body</th>
     <th>Response</th>
   </tr>
   <tr>
     <td>/api/cats/search <code>GET</code></td>
-    <td><ul><li><code>q=[string]</code> <em>required</em></li></code></td>
+    <td>
+      Query parameters:
+      <ul>
+        <li><code>q</code> <em>string required</em></li>
+      </code>
+    </td>
     <td>
       Success response: <ul><li><code>200</code> <code>{ success: true, searchList: [<b>SearchedData</b>]}</code></li></ul> Error responses: <ul><li><code>400</code> <code>{ success: false, message: 'Parameter "q" is required for request!'}</code> if recieves no q parameter</li><li><code>500</code> <code>{ success: false, message: 'Could not get results!'}</code> if otherwise fails</li></ul>
     </td>
@@ -132,8 +137,8 @@ An application to get information about cat breeds & keep information on most se
         <summary><b>SearchedData</b></summary>
         <pre>
         {
-          id: string,
-          name: string,
+          id: <em>string</em>,
+          name: <em>string</em>,
         }
         </pre>
       </details>
@@ -144,12 +149,15 @@ An application to get information about cat breeds & keep information on most se
 <table>
   <tr>
     <th>URL & HTTP method</th>
-    <th>URL query params</th>
+    <th>Parameters | req body</th>
     <th>Response</th>
   </tr>
   <tr>
     <td>/api/cats/images <code>GET</code></td>
-    <td><ul><li><code>breedId=[string]</code>  <em>required</em></li><li><code>limit=[number]</code></li></ul></td>
+    <td>
+      Query parameters:
+      <ul><li><code>breedId</code>  <em>string required</em></li><li><code>limit</code>  <em>integer optional</em></li></ul>
+    </td>
     <td>
       Success response: <ul><li><code>200</code> <code>{ success: true, catInfo: [<b>CatBreedImageData</b>]}</code></li></ul> Error responses: <ul><li><code>400</code> <code>{ success: false, message: 'Parameter "breedId" is required for request!'}</code> if recieves no breedId parameter</li><li><code>500</code> <code>{ success: false, message: 'Could not get results!'}</code> if otherwise fails</li></ul>
     </td>
@@ -162,50 +170,50 @@ An application to get information about cat breeds & keep information on most se
         {
           breeds: [
               weight: {
-              imperial: string,
-              metric: string,
+              imperial: <em>string</em>,
+              metric: <em>string</em>,
             }
-            id: string,
-            name: string,
-            cfa_url: string,
-            vetstreet_url: string,
-            vcahospitals_url: string,
-            temperament: string,
-            origin: string,
-            country_codes: string,
-            country_code: string,
-            description: string,
-            life_span: string,
-            indoor: number,
-            lap: number,
-            alt_names: string,
-            adaptability: number,
-            affection_level: number,
-            child_friendly: number,
-            dog_friendly: number,
-            energy_level: number,
-            grooming: number,
-            health_issues: number,
-            intelligence: number,
-            shedding_level: number,
-            social_needs: number,
-            stranger_friendly: number,
-            vocalisation: number,
-            experimental: number,
-            hairless: number,
-            natural: number,
-            rare: number,
-            rex: number,
-            suppressed_tail: number,
-            short_legs: number,
-            wikipedia_url: string,
-            hypoallergenic: number,
-            reference_image_id: string,
+            id: <em>string</em>,
+            name: <em>string</em>,
+            cfa_url: <em>string</em>,
+            vetstreet_url: <em>string</em>,
+            vcahospitals_url: <em>string</em>,
+            temperament: <em>string</em>,
+            origin: <em>string</em>,
+            country_codes: <em>string</em>,
+            country_code: <em>string</em>,
+            description: <em>string</em>,
+            life_span: <em>string</em>,
+            indoor: <em>number</em>,
+            lap: <em>number</em>,
+            alt_names: <em>string</em>,
+            adaptability: <em>number</em>,
+            affection_level: <em>number</em>,
+            child_friendly: <em>number</em>,
+            dog_friendly: <em>number</em>,
+            energy_level: <em>number</em>,
+            grooming: <em>number</em>,
+            health_issues: <em>number</em>,
+            intelligence: <em>number</em>,
+            shedding_level: <em>number</em>,
+            social_needs: <em>number</em>,
+            stranger_friendly: <em>number</em>,
+            vocalisation: <em>number</em>,
+            experimental: <em>number</em>,
+            hairless: <em>number</em>,
+            natural: <em>number</em>,
+            rare: <em>number</em>,
+            rex: <em>number</em>,
+            suppressed_tail: <em>number</em>,
+            short_legs: <em>number</em>,
+            wikipedia_url: <em>string</em>,
+            hypoallergenic: <em>number</em>,
+            reference_image_id: <em>string</em>,
           ],
-          id: string,
-          url: string,
-          width: number,
-          height: number
+          id: <em>string</em>,
+          url: <em>string</em>,
+          width: <em>number</em>,
+          height: <em>number</em>
         }
         </pre>
       </details>
@@ -216,7 +224,7 @@ An application to get information about cat breeds & keep information on most se
 <table>
   <tr>
     <th>URL & HTTP method</th>
-    <th>URL query params</th>
+    <th>Parameters | req body</th>
     <th>Response</th>
   </tr>
   <tr>
@@ -234,50 +242,50 @@ An application to get information about cat breeds & keep information on most se
         {
           breeds: [
               weight: {
-              imperial: string,
-              metric: string,
+              imperial: <em>string</em>,
+              metric: <em>string</em>,
             }
-            id: string,
-            name: string,
-            cfa_url: string,
-            vetstreet_url: string,
-            vcahospitals_url: string,
-            temperament: string,
-            origin: string,
-            country_codes: string,
-            country_code: string,
-            description: string,
-            life_span: string,
-            indoor: number,
-            lap: number,
-            alt_names: string,
-            adaptability: number,
-            affection_level: number,
-            child_friendly: number,
-            dog_friendly: number,
-            energy_level: number,
-            grooming: number,
-            health_issues: number,
-            intelligence: number,
-            shedding_level: number,
-            social_needs: number,
-            stranger_friendly: number,
-            vocalisation: number,
-            experimental: number,
-            hairless: number,
-            natural: number,
-            rare: number,
-            rex: number,
-            suppressed_tail: number,  
-            short_legs: number,
-            wikipedia_url: string,
-            hypoallergenic: number,
-            reference_image_id: string,
+            id: <em>string</em>,
+            name: <em>string</em>,
+            cfa_url: <em>string</em>,
+            vetstreet_url: <em>string</em>,
+            vcahospitals_url: <em>string</em>,
+            temperament: <em>string</em>,
+            origin: <em>string</em>,
+            country_codes: <em>string</em>,
+            country_code: <em>string</em>,
+            description: <em>string</em>,
+            life_span: <em>string</em>,
+            indoor: <em>number</em>,
+            lap: <em>number</em>,
+            alt_names: <em>string</em>,
+            adaptability: <em>number</em>,
+            affection_level: <em>number</em>,
+            child_friendly: <em>number</em>,
+            dog_friendly: <em>number</em>,
+            energy_level: <em>number</em>,
+            grooming: <em>number</em>,
+            health_issues: <em>number</em>,
+            intelligence: <em>number</em>,
+            shedding_level: <em>number</em>,
+            social_needs: <em>number</em>,
+            stranger_friendly: <em>number</em>,
+            vocalisation: <em>number</em>,
+            experimental: <em>number</em>,
+            hairless: <em>number</em>,
+            natural: <em>number</em>,
+            rare: <em>number</em>,
+            rex: <em>number</em>,
+            suppressed_tail: <em>number</em>,  
+            short_legs: <em>number</em>,
+            wikipedia_url: <em>string</em>,
+            hypoallergenic: <em>number</em>,
+            reference_image_id: <em>string</em>,
           ],
-          id: string,
-          url: string,
-          width: number,
-          height: number
+          id: <em>string</em>,
+          url: <em>string</em>,
+          width: <em>number</em>,
+          height: <em>number</em>
         }
         </pre>
       </details>
