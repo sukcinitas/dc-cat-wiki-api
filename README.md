@@ -1,6 +1,6 @@
 # DC Cat Wiki Api
 
-An application to get information about cat breeds & keep information on most searched ones. Complementary to [dc-cat-wiki](https://github.com/sukcinitas/dc-cat-wiki).
+An api to get information about cat breeds from CatAPI and to keep track of most searched ones. Complementary to [dc-cat-wiki](https://github.com/sukcinitas/dc-cat-wiki). You can find an application example [here](https://cats-wiki.netlify.app/) (it might take a little while for server to wake up).
 
 ---
 
@@ -19,6 +19,7 @@ An application to get information about cat breeds & keep information on most se
 - Mocha & Chai
 
 ##### Linting
+
 - ESLint
 
 ##### Compiling 
