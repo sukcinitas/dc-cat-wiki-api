@@ -8,7 +8,10 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 app.use(express.json()); // instead of bodyParser, since 4.16 Express; extended
-app.use(cors());
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' ? process.env.ORIGIN : 'http://localhost:4000',
+}));
+
 
 app.use('/api/cats', catsRouter);
 
