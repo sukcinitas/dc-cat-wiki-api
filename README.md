@@ -32,7 +32,7 @@ An api to get information about cat breeds from CatAPI and to keep track of most
 
 - Clone this repository - `git clone https://github.com/sukcinitas/dc-cat-wiki-api.git`, install dependencies `cd dc-cat-wiki-api`, `npm install` (you will need `npm` and `node` installed globally);
 
-  - `npm start` - to run the app on [localhost:8080](http://localhost:8080/) using nodemon
+  - `npm run dev` - to run the app on [localhost:8080](http://localhost:8080/) using nodemon
   - `npm run serve` - to run the app on [localhost:8080](http://localhost:8080/) without nodemon
   - `npm run lint` - to lint
   - `npm run test` - to run tests
