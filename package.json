@@ -4,12 +4,12 @@
   "description": "",
   "main": "dist/server.ts",
   "scripts": {
-    "dev": "nodemon",
+    "start": "nodemon",
     "serve": "node dist/server.js",
     "lint": "eslint . --ext .ts",
-    "build": "babel src --out-dir dist --extensions \".ts\" --copy-files --source-maps inline && cd dist && node server.js",
-    "test": "mocha  -u tdd -r src/tests/babel-register.js src/tests/*.spec.ts",
-    "start": "babel src --out-dir dist --extensions \".ts\" --copy-files --source-maps inline && cd dist && node server.js"
+    "heroku-postbuild": "babel src --out-dir dist --extensions \".ts\" --copy-files --source-maps inline && cd dist && node server.js",
+    "build": "babel src --out-dir dist --extensions \".ts\" --copy-files --source-maps inline",
+    "test": "mocha  -u tdd -r src/tests/babel-register.js src/tests/*.spec.ts"
   },
   "keywords": [],
   "author": "",
