@@ -6,8 +6,7 @@
   "scripts": {
     "start": "nodemon",
     "lint": "eslint . --ext .ts",
-    "build": "babel src --out-dir dist --extensions \".ts\" --copy-files --source-maps inline",
-    "serve": "node dist/server.js",
+    "build": "babel src --out-dir dist --extensions \".ts\" --copy-files --source-maps inline && node dist/server.js",
     "test": "mocha  -u tdd -r src/tests/babel-register.js src/tests/*.spec.ts"
   },
   "keywords": [],
