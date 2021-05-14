@@ -111,4 +111,16 @@ suite('Routing tests', function() {
         });
     });
 
+
+    suite('GET /api => get not existing route', function() {
+      test('Test GET /api', function(done) {
+        chai.request(server)
+          .get('/api')
+          .end(function(err, res){
+            assert.equal(res.status, 404);
+            assert.equal(res.body.message, 'Not found!');
+            done();
+          });
+        });
+    });
 });

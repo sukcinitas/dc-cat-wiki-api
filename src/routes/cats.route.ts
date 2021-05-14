@@ -9,7 +9,7 @@ const catchErr = (f: any) => (
   req: Request,
   res: Response,
   next: NextFunction,
-) => f(req, res).catch((err: Error) => next(err));
+) => f(req, res, next).catch(next);
 
 router.route('/breeds/:breedId').get(catchErr(CatsController.getBreedByBreedId));
 router.route('/images').get(catchErr(CatsController.getImagesOfBreedByBreedId));

@@ -42,6 +42,8 @@ An api to get information about cat breeds from CatAPI and to keep track of most
 
 ## Endpoints
 
+Note: in **"development"** mode unsuccessful responses have additional properties: <code>error</code> and <code>stack</code>.
+
 <table>
   <tr>
     <th>URL & HTTP method</th>
@@ -52,7 +54,7 @@ An api to get information about cat breeds from CatAPI and to keep track of most
     <td>/api/cats/ <code>GET</code></td>
     <td>none</td>
     <td>
-      Success response: <ul><li><code>200</code> <code>{ success: true, mostPopularBreeds: [<b>CatBreedSearchedData</b>]}</code></li></ul> Error response: <ul><li><code>500</code> <code>{ success: false, message: 'Could not get results!'}</code></li></ul>
+      Success response: <ul><li><code>200</code> <code>{ success: true, mostPopularBreeds: [<b>CatBreedSearchedData</b>]}</code></li></ul> Error response: <ul><li><code>500</code> <code>{ success: false, message: 'Something went wrong!'}</code></li></ul>
     </td>
   </tr>
   <tr>
@@ -129,7 +131,7 @@ An api to get information about cat breeds from CatAPI and to keep track of most
       </code>
     </td>
     <td>
-      Success response: <ul><li><code>200</code> <code>{ success: true, searchList: [<b>SearchedData</b>]}</code></li></ul> Error responses: <ul><li><code>400</code> <code>{ success: false, message: 'Parameter "q" is required for request!'}</code> if recieves no q parameter</li><li><code>500</code> <code>{ success: false, message: 'Could not get results!'}</code> if otherwise fails</li></ul>
+      Success response: <ul><li><code>200</code> <code>{ success: true, searchList: [<b>SearchedData</b>]}</code></li></ul> Error responses: <ul><li><code>400</code> <code>{ success: false, message: 'Parameter "q" is required for request!'}</code> if recieves no q parameter</li><li><code>500</code> <code>{ success: false, message: 'Something went wrong!'}</code> if otherwise fails</li></ul>
     </td>
   </tr>
   <tr>
@@ -160,7 +162,7 @@ An api to get information about cat breeds from CatAPI and to keep track of most
       <ul><li><code>breedId</code>  <em>string required</em></li><li><code>limit</code>  <em>integer optional</em></li></ul>
     </td>
     <td>
-      Success response: <ul><li><code>200</code> <code>{ success: true, catInfo: [<b>CatBreedImageData</b>]}</code></li></ul> Error responses: <ul><li><code>400</code> <code>{ success: false, message: 'Parameter "breedId" is required for request!'}</code> if recieves no breedId parameter</li><li><code>500</code> <code>{ success: false, message: 'Could not get results!'}</code> if otherwise fails</li></ul>
+      Success response: <ul><li><code>200</code> <code>{ success: true, catInfo: [<b>CatBreedImageData</b>]}</code></li></ul> Error responses: <ul><li><code>400</code> <code>{ success: false, message: 'Parameter "breedId" is required for request!'}</code> if recieves no breedId parameter</li><li><code>500</code> <code>{ success: false, message: 'Something went wrong!'}</code> if otherwise fails</li></ul>
     </td>
   </tr>
   <tr>
@@ -232,7 +234,7 @@ An api to get information about cat breeds from CatAPI and to keep track of most
     <td>/api/cats/breeds/:breedId <code>GET</code></td>
     <td>none</td>
     <td>
-      Success response: <ul><li><code>200</code> <code>{ success: true, catInfo: <b>CatBreedImageData</b>}</code></li></ul> Error response: <ul><li><code>500</code> <code>{ success: false, message: 'Could not get results!'}</code></li></ul>
+      Success response: <ul><li><code>200</code> <code>{ success: true, catInfo: <b>CatBreedImageData</b>}</code></li></ul> Error response: <ul><li><code>500</code> <code>{ success: false, message: 'Something went wrong!'}</code></li></ul>
     </td>
   </tr>
   <tr>

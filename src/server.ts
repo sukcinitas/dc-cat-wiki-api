@@ -1,8 +1,9 @@
-import express from 'express';
-import { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 
 import catsRouter from './routes/cats.route';
+import { AppError } from './errorHandling/errorClasses';
+import errorHandlingMiddleware from './errorHandling/errorHandlingMiddleWare';
 
 const app = express();
 
@@ -15,13 +16,11 @@ app.use(cors({
 
 app.use('/api/cats', catsRouter);
 
-app.use(function (req: Request, res: Response) {
-  res.status(404).send('Not found!');
+app.all('*', function (req: Request, res: Response, next: NextFunction) {
+  next(new AppError('Not found!', 404));
 })
 
-app.use(function (err: Error, req: Request, res: Response) {
-  res.status(500).end();
-});
+app.use(errorHandlingMiddleware);
 
 app.listen(process.env.PORT || 8080, () => {
   console.log('App is running!');
