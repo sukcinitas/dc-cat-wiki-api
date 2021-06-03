@@ -11,6 +11,7 @@ chai.use(chaiHttp);
 suite('Routing tests', function() {
 
   suite('GET /api/cats => expect list of most searched cats', function() {
+    this.timeout(30000);
     test('Test GET /api/cats', function(done) {
       chai.request(server)
         .get('/api/cats')
