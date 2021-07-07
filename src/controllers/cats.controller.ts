@@ -10,7 +10,7 @@ const CatsController = {
   async searchForBreedByQuery(req: Request, res: Response, next: NextFunction): Promise<any> {
     try {
       const q = typeof req.query.q === 'string' ? req.query.q : undefined;
-      if (!q) {
+      if (!q && typeof req.query.q !== 'string') {
         throw new AppError('Parameter "q" is required for request!', 400);
       }
       const searchList = await mostPopularSearch.search(q);
