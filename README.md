@@ -28,6 +28,14 @@ An api to get information about cat breeds from CatAPI and to keep track of most
 
 ---
 
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`ORIGIN`, `API_KEY`
+
+---
+
 ## Setup
 
 - Clone this repository - `git clone https://github.com/sukcinitas/dc-cat-wiki-api.git`, install dependencies `cd dc-cat-wiki-api`, `npm install` (you will need `npm` and `node` installed globally);
