@@ -1,6 +1,6 @@
 # DC Cat Wiki Api
 
-An api to get information about cat breeds from CatAPI and to keep track of the most searched ones. Complementary to [dc-cat-wiki](https://github.com/sukcinitas/dc-cat-wiki). You can find the application example [here](https://cats-wiki.netlify.app/) (it might take a little while for the server to wake up). Api can be tried here [https://sheltered-lowlands-67991.herokuapp.com/api/](https://sheltered-lowlands-67991.herokuapp.com/api/).
+An api to get information about cat breeds from CatAPI and to keep track of the most searched ones. Complementary to [dc-cat-wiki](https://github.com/sukcinitas/dc-cat-wiki). You can find the application example [here](https://cats-wiki.netlify.app/) (it might take a little while for the server to wake up). Api can be tried here [https://elemental-oil-tin.glitch.me//api/](https://sheltered-lowlands-67991.herokuapp.com/api/).
 
 ---
 
@@ -22,7 +22,7 @@ An api to get information about cat breeds from CatAPI and to keep track of the 
 
 - ESLint
 
-##### Compiling 
+##### Compiling
 
 - Babel 7
 
@@ -40,7 +40,7 @@ To run this project, you will need to add the following environment variables to
 
 - Clone this repository - `git clone https://github.com/sukcinitas/dc-cat-wiki-api.git`, install dependencies `cd dc-cat-wiki-api`, `npm install` (you will need `npm` and `node` installed globally);
 
-  - `npm start` - to run the app on [localhost:8080](http://localhost:8080/) 
+  - `npm start` - to run the app on [localhost:8080](http://localhost:8080/)
   - `npm run dev` - to run the app on [localhost:8080](http://localhost:8080/) using nodemon
   - `npm run lint` - to lint
   - `npm run test` - to run tests
