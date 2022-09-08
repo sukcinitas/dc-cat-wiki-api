@@ -1,6 +1,6 @@
 # DC Cat Wiki Api
 
-An api to get information about cat breeds from CatAPI and to keep track of the most searched ones. Complementary to [dc-cat-wiki](https://github.com/sukcinitas/dc-cat-wiki). You can find the application example [here](https://cats-wiki.netlify.app/) (it might take a little while for the server to wake up). Api can be tried here [https://elemental-oil-tin.glitch.me//api/](https://sheltered-lowlands-67991.herokuapp.com/api/).
+An api to get information about cat breeds from CatAPI and to keep track of the most searched ones. Complementary to [dc-cat-wiki](https://github.com/sukcinitas/dc-cat-wiki). You can find the application example [here](https://cats-wiki.netlify.app/) (it might take a little while for the server to wake up). Api can be tried here [https://elemental-oil-tin.glitch.me//api/](https://elemental-oil-tin.glitch.me/api/).
 
 ---
 
