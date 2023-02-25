@@ -13,8 +13,8 @@
     "dev": "nodemon"
   },
   "engines": {
-    "node": "16.13.0",
-    "npm": "8.3.0"
+    "node": "19.7.0",
+    "npm": "9.5.0"
   },
   "keywords": [],
   "author": "",
