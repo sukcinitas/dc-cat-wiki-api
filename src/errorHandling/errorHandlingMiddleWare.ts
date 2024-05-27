@@ -1,6 +1,7 @@
-import { Request, Response, NextFunction, Error } from 'express';
+import { Request, Response } from 'express';
+import { AppError } from './errorClasses';
 
-const sendErrorDev = (err, res) => {
+const sendErrorDev = (err: AppError, res: Response) => {
   const { message, statusCode, success, isOperational } = err;
   if (isOperational) {
     res.status(statusCode).json({
@@ -20,7 +21,7 @@ const sendErrorDev = (err, res) => {
   }
 };
 
-const sendErrorProd = (err, res) => {
+const sendErrorProd = (err: AppError, res: Response) => {
   const { message, statusCode, success, isOperational } = err;
   if (isOperational) {
     res.status(statusCode).json({
@@ -38,7 +39,7 @@ const sendErrorProd = (err, res) => {
 
 };
 
-export default (err: Error, req: Request, res: Response, next: NextFunction): void => {
+export default (err: AppError, req: Request, res: Response): void => {
   err.statusCode = err.statusCode || 500;
   err.success = err.success || false;
 
