@@ -5,7 +5,7 @@ import CatsController from '../controllers/cats.controller';
 
 const router = express.Router();
 
-const catchErr = (f: (req: Request, res: Response, next: NextFunction) => Promise<any>) => (
+const catchErr = (f: (req: Request, res: Response, next: NextFunction) => Promise<unknown>) => (
   req: Request,
   res: Response,
   next: NextFunction,
